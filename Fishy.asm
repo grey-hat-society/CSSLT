@@ -6,6 +6,7 @@
 spaces dw 5
 print dw 1
 temp1 dw 0
+temp2 dw 5
 iterations dw 0
 .code
 
@@ -16,8 +17,11 @@ main proc
     mov temp1, cx
     mov cx, 5
     
+    outer2:
     
-    
+    mov bx, cx
+    mov cx, temp2
+   
     outer1: 
     
     mov iterations, cx
@@ -45,6 +49,8 @@ main proc
     
     loop l2
     
+    
+    
     mov dl, '*'
     mov ah, 02h
     int 21h
@@ -57,6 +63,23 @@ main proc
     
     
     
+    mov dl, 13
+    mov ah, 02h
+    int 21h
+    
+    mov dl, 10
+    mov ah, 02h
+    int 21h
+    
+    sub spaces, 2
+    cmp spaces,0
+    jl endpoint
+    
+    mov cx, bx
+    
+    loop outer2
+    
+endpoint:    
     mov ah, 4Ch
     int 21h
     

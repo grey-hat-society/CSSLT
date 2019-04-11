@@ -22,7 +22,7 @@ main proc
     
     l1:
     
-       mov dl, '*'
+    mov dl, '5'
        mov ah, 02h
        int 21h
        
