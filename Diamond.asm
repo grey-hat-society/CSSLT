@@ -43,7 +43,7 @@ main proc
     mov cx, Star
 
     Stars:
-             mov dl, '/'
+    mov dl, '2'
             mov ah, 02h
             int 21h
             loop Stars
